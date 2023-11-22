@@ -50,24 +50,91 @@ class EmployeesTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($employeeDataType, 'company_id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'select_dropdown',
+                'display_name' => 'Company',
+                'required'     => 0,
+                'browse'       => 0,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => [
+                    'default' => '',
+                    'null'    => '',
+                    'options' => [
+                        '' => '-- Choose Company --',
+                    ],
+                    'relationship' => [
+                        'key'   => 'id',
+                        'label' => 'name',
+                    ],
+                ],
+                'order' => 2,
+            ])->save();
+        }
 
-
-        $dataRow = $this->dataRow($employeeDataType, 'name');
+        $dataRow = $this->dataRow($employeeDataType, 'fname');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'text',
-                'display_name' => __('voyager::seeders.data_rows.name'),
+                'display_name' => 'First Name',
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 4,
+                'order'        => 3,
             ])->save();
         }
 
+        $dataRow = $this->dataRow($employeeDataType, 'lname');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Last Name',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 4
+            ])->save();
+        }
 
+        $dataRow = $this->dataRow($employeeDataType, 'email');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => __('voyager::seeders.data_rows.email'),
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 5,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($employeeDataType, 'phone');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Phone No',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order' => 6,
+            ])->save();
+        }
 
         $dataRow = $this->dataRow($employeeDataType, 'created_at');
         if (!$dataRow->exists) {
@@ -80,7 +147,7 @@ class EmployeesTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 6,
+                'order'        => 7,
             ])->save();
         }
 
@@ -95,9 +162,58 @@ class EmployeesTableSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 7,
+                'order'        => 8,
             ])->save();
         }
+
+
+
+        // $dataRow = $this->dataRow($employeeDataType, 'name');
+        // if (!$dataRow->exists) {
+        //     $dataRow->fill([
+        //         'type'         => 'text',
+        //         'display_name' => __('voyager::seeders.data_rows.name'),
+        //         'required'     => 1,
+        //         'browse'       => 1,
+        //         'read'         => 1,
+        //         'edit'         => 1,
+        //         'add'          => 1,
+        //         'delete'       => 1,
+        //         'order'        => 4,
+        //     ])->save();
+        // }
+
+
+
+        // $dataRow = $this->dataRow($employeeDataType, 'created_at');
+        // if (!$dataRow->exists) {
+        //     $dataRow->fill([
+        //         'type'         => 'timestamp',
+        //         'display_name' => __('voyager::seeders.data_rows.created_at'),
+        //         'required'     => 0,
+        //         'browse'       => 0,
+        //         'read'         => 1,
+        //         'edit'         => 0,
+        //         'add'          => 0,
+        //         'delete'       => 0,
+        //         'order'        => 6,
+        //     ])->save();
+        // }
+
+        // $dataRow = $this->dataRow($employeeDataType, 'updated_at');
+        // if (!$dataRow->exists) {
+        //     $dataRow->fill([
+        //         'type'         => 'timestamp',
+        //         'display_name' => __('voyager::seeders.data_rows.updated_at'),
+        //         'required'     => 0,
+        //         'browse'       => 0,
+        //         'read'         => 0,
+        //         'edit'         => 0,
+        //         'add'          => 0,
+        //         'delete'       => 0,
+        //         'order'        => 7,
+        //     ])->save();
+        // }
 
         //Menu Item
         $menu = Menu::where('name', 'admin')->firstOrFail();

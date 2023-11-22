@@ -14,11 +14,11 @@ class Employee extends Model
 
     protected $translatable = ['fname', 'lname', 'company_id', 'email', 'phone'];
 
-    // protected $table = 'employees';
+    protected $table = 'employees';
 
-    // // protected $fillable =  ['fname', 'lname', 'company_id', 'email', 'phone'];
+    protected $fillable =  ['fname', 'lname', 'company_id', 'email', 'phone'];
 
-    public function company()
+    public function companyId()
     {
         return $this->belongsTo('App\Models\Company');
     }

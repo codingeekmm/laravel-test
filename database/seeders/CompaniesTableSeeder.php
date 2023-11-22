@@ -26,7 +26,7 @@ class CompaniesTableSeeder extends Seeder
                 'slug'                  => 'companies',
                 'display_name_singular' => 'Company',
                 'display_name_plural'   => 'Companies',
-                'icon'                  => 'voyager-shop',
+                'icon'                  => 'voyager-world',
                 'model_name'            => 'App\\Models\\Company',
                 'controller'            => 'App\\Http\\Controllers\\CompanyController',
                 'generate_permissions'  => 1,
@@ -50,8 +50,6 @@ class CompaniesTableSeeder extends Seeder
             ])->save();
         }
 
-
-
         $dataRow = $this->dataRow($companyDataType, 'name');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -63,86 +61,199 @@ class CompaniesTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 4,
+                'order'        => 2,
             ])->save();
         }
 
-
-
-        $dataRow = $this->dataRow($companyDataType, 'created_at');
+        $dataRow = $this->dataRow($companyDataType, 'email');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'timestamp',
-                'display_name' => __('voyager::seeders.data_rows.created_at'),
-                'required'     => 0,
-                'browse'       => 0,
+                'type'         => 'text',
+                'display_name' => __('voyager::seeders.data_rows.email'),
+                'required'     => 1,
+                'browse'       => 1,
                 'read'         => 1,
-                'edit'         => 0,
-                'add'          => 0,
-                'delete'       => 0,
-                'order'        => 6,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 3,
             ])->save();
         }
 
-        $dataRow = $this->dataRow($companyDataType, 'updated_at');
+        $dataRow = $this->dataRow($companyDataType, 'website');
         if (!$dataRow->exists) {
             $dataRow->fill([
-                'type'         => 'timestamp',
-                'display_name' => __('voyager::seeders.data_rows.updated_at'),
+                'type'         => 'text',
+                'display_name' => 'Website',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order' => 4,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($companyDataType, 'logo');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'image',
+                'display_name' => 'Logo',
                 'required'     => 0,
-                'browse'       => 0,
-                'read'         => 0,
-                'edit'         => 0,
-                'add'          => 0,
-                'delete'       => 0,
-                'order'        => 7,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'details'      => [
+                    'resize' => [
+                        'width'  => '100',
+                        'height' => '100',
+                    ],
+                ],
+                'order' => 5,
             ])->save();
-        }
 
-        //Menu Item
-        $menu = Menu::where('name', 'admin')->firstOrFail();
-        $menuItem = MenuItem::firstOrNew([
-            'menu_id' => $menu->id,
-            'title'   => 'Companies',
-            'url'     => '',
-            'route'   => 'voyager.companies.index',
-        ]);
-        if (!$menuItem->exists) {
-            $menuItem->fill([
-                'target'     => '_self',
-                'icon_class' => 'voyager-companies',
-                'color'      => null,
-                'parent_id'  => null,
-                'order'      => 8,
-            ])->save();
-        }
+            // $dataRow = $this->dataRow($companyDataType, 'image');
+            // if (!$dataRow->exists) {
+            //     $dataRow->fill([
+            //         'type'         => 'image',
+            //         'display_name' => 'Logo',
+            //         'required'     => 1,
+            //         'browse'       => 1,
+            //         'read'         => 1,
+            //         'edit'         => 1,
+            //         'add'          => 1,
+            //         'delete'       => 1,
+            //         'order'        => 5,
+            //     ])->save();
+            // }
 
-        //Permissions
-        Permission::generateFor('companies');
+            $dataRow = $this->dataRow($companyDataType, 'created_at');
+            if (!$dataRow->exists) {
+                $dataRow->fill([
+                    'type'         => 'timestamp',
+                    'display_name' => __('voyager::seeders.data_rows.created_at'),
+                    'required'     => 0,
+                    'browse'       => 0,
+                    'read'         => 1,
+                    'edit'         => 0,
+                    'add'          => 0,
+                    'delete'       => 0,
+                    'order'        => 6,
+                ])->save();
+            }
 
-        //Content
-        $company = Company::firstOrNew([
-            'name' => 'company-one',
-        ]);
-        if (!$company->exists) {
-            $company->fill([
-                'name' => 'Company One',
-                'email' => 'companyone@email.com',
-                "logo" => 'companies/default.png',
-                "website" => 'www.companyone.com'
-            ])->save();
-        }
+            $dataRow = $this->dataRow($companyDataType, 'updated_at');
+            if (!$dataRow->exists) {
+                $dataRow->fill([
+                    'type'         => 'timestamp',
+                    'display_name' => __('voyager::seeders.data_rows.updated_at'),
+                    'required'     => 0,
+                    'browse'       => 0,
+                    'read'         => 0,
+                    'edit'         => 0,
+                    'add'          => 0,
+                    'delete'       => 0,
+                    'order'        => 7,
+                ])->save();
+            }
 
-        $company = Company::firstOrNew([
-            'name' => 'company-two',
-        ]);
-        if (!$company->exists) {
-            $company->fill([
-                'name' => 'Company Two',
-                'email' => 'companytwo@email.com',
-                "logo" => 'companies/default.png',
-                "website" => 'www.companytwo.com'
-            ])->save();
+
+
+            // $dataRow = $this->dataRow($companyDataType, 'name');
+            // if (!$dataRow->exists) {
+            //     $dataRow->fill([
+            //         'type'         => 'text',
+            //         'display_name' => __('voyager::seeders.data_rows.name'),
+            //         'required'     => 1,
+            //         'browse'       => 1,
+            //         'read'         => 1,
+            //         'edit'         => 1,
+            //         'add'          => 1,
+            //         'delete'       => 1,
+            //         'order'        => 4,
+            //     ])->save();
+            // }
+
+
+
+            // $dataRow = $this->dataRow($companyDataType, 'created_at');
+            // if (!$dataRow->exists) {
+            //     $dataRow->fill([
+            //         'type'         => 'timestamp',
+            //         'display_name' => __('voyager::seeders.data_rows.created_at'),
+            //         'required'     => 0,
+            //         'browse'       => 0,
+            //         'read'         => 1,
+            //         'edit'         => 0,
+            //         'add'          => 0,
+            //         'delete'       => 0,
+            //         'order'        => 6,
+            //     ])->save();
+            // }
+
+            // $dataRow = $this->dataRow($companyDataType, 'updated_at');
+            // if (!$dataRow->exists) {
+            //     $dataRow->fill([
+            //         'type'         => 'timestamp',
+            //         'display_name' => __('voyager::seeders.data_rows.updated_at'),
+            //         'required'     => 0,
+            //         'browse'       => 0,
+            //         'read'         => 0,
+            //         'edit'         => 0,
+            //         'add'          => 0,
+            //         'delete'       => 0,
+            //         'order'        => 7,
+            //     ])->save();
+            // }
+
+            //Menu Item
+            $menu = Menu::where('name', 'admin')->firstOrFail();
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title'   => 'Companies',
+                'url'     => '',
+                'route'   => 'voyager.companies.index',
+            ]);
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target'     => '_self',
+                    'icon_class' => 'voyager-companies',
+                    'color'      => null,
+                    'parent_id'  => null,
+                    'order'      => 8,
+                ])->save();
+            }
+
+            //Permissions
+            Permission::generateFor('companies');
+
+            //Content
+            $company = Company::firstOrNew([
+                'name' => 'company-one',
+            ]);
+            if (!$company->exists) {
+                $company->fill([
+                    'name' => 'Company One',
+                    'email' => 'companyone@email.com',
+                    "logo" => 'companies/default.png',
+                    "website" => 'www.companyone.com'
+                ])->save();
+            }
+
+            $company = Company::firstOrNew([
+                'name' => 'company-two',
+            ]);
+            if (!$company->exists) {
+                $company->fill([
+                    'name' => 'Company Two',
+                    'email' => 'companytwo@email.com',
+                    "logo" => 'companies/default.png',
+                    "website" => 'www.companytwo.com'
+                ])->save();
+            }
         }
     }
 
