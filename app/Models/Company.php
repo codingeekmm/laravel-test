@@ -10,9 +10,9 @@ class Company extends Model
 {
     use HasFactory;
 
-    // use Translatable;
+    use Translatable;
 
-    // protected $translatable = ['name', 'email', 'logo', 'website'];
+    protected $translatable = ['name', 'email', 'logo', 'website'];
 
     // protected $table = 'companies';
 

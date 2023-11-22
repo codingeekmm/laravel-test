@@ -10,9 +10,9 @@ class Employee extends Model
 {
     use HasFactory;
 
-    // use Translatable;
+    use Translatable;
 
-    // protected $translatable = ['fname', 'lname', 'company_id', 'email', 'phone'];
+    protected $translatable = ['fname', 'lname', 'company_id', 'email', 'phone'];
 
     // protected $table = 'employees';
 
