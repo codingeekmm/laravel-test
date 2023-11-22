@@ -1,6 +1,6 @@
 composer install
 
-configure .env
+copy annd configure .env
 
 php artisan migrate
 
