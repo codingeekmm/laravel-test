@@ -10,13 +10,13 @@ class Employee extends Model
 {
     use HasFactory;
 
-    // use Translatable;
+    use Translatable;
 
-    // protected $translatable = ['fname', 'lname', 'company_id', 'email', 'phone'];
+    protected $translatable = ['fname', 'lname', 'company_id', 'email', 'phone'];
 
-    // protected $table = 'employees';
+    protected $table = 'employees';
 
-    // // protected $fillable =  ['fname', 'lname', 'company_id', 'email', 'phone'];
+    // protected $fillable =  ['fname', 'lname', 'company_id', 'email', 'phone'];
 
     public function company()
     {
