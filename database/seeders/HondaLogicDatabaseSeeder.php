@@ -24,9 +24,9 @@ class HondaLogicDatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             PermissionsTableSeeder::class,
             SettingsTableSeeder::class,
-            TranslationsTableSeeder::class,
             CompaniesTableSeeder::class,
             EmployeesTableSeeder::class,
+            // TranslationsTableSeeder::class,
             PermissionRoleTableSeeder::class,
         ]);
     }

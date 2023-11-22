@@ -121,26 +121,29 @@ class CompaniesTableSeeder extends Seeder
         Permission::generateFor('companies');
 
         //Content
+        $company = Company::firstOrNew([
+            'name' => 'company-one',
+        ]);
+        if (!$company->exists) {
+            $company->fill([
+                'name' => 'Company One',
+                'email' => 'companyone@email.com',
+                "logo" => 'companies/default.png',
+                "website" => 'www.companyone.com'
+            ])->save();
+        }
 
-        Company::factory()->count(5)->create();
-
-        // $company = Company::firstOrNew([
-        //     'name' => 'company-1',
-        // ]);
-        // if (!$company->exists) {
-        //     $company->fill([
-        //         'name' => 'Company 1',
-        //     ])->save();
-        // }
-
-        // $company = Company::firstOrNew([
-        //     'name' => 'company-2',
-        // ]);
-        // if (!$company->exists) {
-        //     $company->fill([
-        //         'name' => 'Company 2',
-        //     ])->save();
-        // }
+        $company = Company::firstOrNew([
+            'name' => 'company-two',
+        ]);
+        if (!$company->exists) {
+            $company->fill([
+                'name' => 'Company Two',
+                'email' => 'companytwo@email.com',
+                "logo" => 'companies/default.png',
+                "website" => 'www.companytwo.com'
+            ])->save();
+        }
     }
 
     /**

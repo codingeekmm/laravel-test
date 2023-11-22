@@ -122,25 +122,140 @@ class EmployeesTableSeeder extends Seeder
 
         //Content
 
-        Employee::factory()->count(50)->create();
+        // Employee::factory()->count(50)->create();
 
-        // $company = Company::firstOrNew([
-        //     'name' => 'company-1',
-        // ]);
-        // if (!$company->exists) {
-        //     $company->fill([
-        //         'name' => 'Company 1',
-        //     ])->save();
-        // }
+        $employee = Employee::firstOrNew([
+            'email' => 'rick@companyone.com',
+        ]);
+        if (!$employee->exists) {
+            $employee->fill([
+                'fname' => 'Rick',
+                'lname' => 'Novek',
+                'email' => 'rick@companyone.com',
+                'phone' => '09326382232',
+                'company_id' => 1
+            ])->save();
+        }
 
-        // $company = Company::firstOrNew([
-        //     'name' => 'company-2',
-        // ]);
-        // if (!$company->exists) {
-        //     $company->fill([
-        //         'name' => 'Company 2',
-        //     ])->save();
-        // }
+        $employee = Employee::firstOrNew([
+            'email' => 'susan@companyone.com',
+        ]);
+        if (!$employee->exists) {
+            $employee->fill([
+                'fname' => 'Susan',
+                'lname' => 'Cannor',
+                'email' => 'susan@companyone.com',
+                'phone' => '09327828329',
+                'company_id' => 1
+            ])->save();
+        }
+
+        $employee = Employee::firstOrNew([
+            'email' => 'ronald@companyone.com',
+        ]);
+        if (!$employee->exists) {
+            $employee->fill([
+                'fname' => 'Ronald',
+                'lname' => 'Barr',
+                'email' => 'ronald@companyone.com',
+                'phone' => '099868559',
+                'company_id' => 1
+            ])->save();
+        }
+
+        $employee = Employee::firstOrNew([
+            'email' => 'mark@companyone.com',
+        ]);
+        if (!$employee->exists) {
+            $employee->fill([
+                'fname' => 'Mark',
+                'lname' => 'Adam',
+                'email' => 'mark@companyone.com',
+                'phone' => '09297663222',
+                'company_id' => 1
+            ])->save();
+        }
+
+        $employee = Employee::firstOrNew([
+            'email' => 'bett@companyone.com',
+        ]);
+        if (!$employee->exists) {
+            $employee->fill([
+                'fname' => 'Bett',
+                'lname' => 'Porter',
+                'email' => 'bett@companyone.com',
+                'phone' => '09675322119',
+                'company_id' => 1
+            ])->save();
+        }
+
+        //
+
+        $employee = Employee::firstOrNew([
+            'email' => 'lucus@companytwo.com',
+        ]);
+        if (!$employee->exists) {
+            $employee->fill([
+                'fname' => 'Lucus',
+                'lname' => 'Dave',
+                'email' => 'lucus@companytwo.com',
+                'phone' => '0982216521',
+                'company_id' => 2
+            ])->save();
+        }
+
+        $employee = Employee::firstOrNew([
+            'email' => 'ellis@companytwo.com',
+        ]);
+        if (!$employee->exists) {
+            $employee->fill([
+                'fname' => 'Ellis',
+                'lname' => 'Kan',
+                'email' => 'ellis@companytwo.com',
+                'phone' => '0987836222',
+                'company_id' => 2
+            ])->save();
+        }
+
+        $employee = Employee::firstOrNew([
+            'email' => 'jack@companytwo.com',
+        ]);
+        if (!$employee->exists) {
+            $employee->fill([
+                'fname' => 'Jack',
+                'lname' => 'London',
+                'email' => 'jack@companytwo.com',
+                'phone' => '0986272712',
+                'company_id' => 2
+            ])->save();
+        }
+
+        $employee = Employee::firstOrNew([
+            'email' => 'powell@companytwo.com',
+        ]);
+        if (!$employee->exists) {
+            $employee->fill([
+                'fname' => 'Powell',
+                'lname' => 'Roge',
+                'email' => 'powell@companytwo.com',
+                'phone' => '09673352212',
+                'company_id' => 2
+            ])->save();
+        }
+
+        $employee = Employee::firstOrNew([
+            'email' => 'mike@companytwo.com',
+        ]);
+        if (!$employee->exists) {
+            $employee->fill([
+                'fname' => 'Mike',
+                'lname' => 'Sam',
+                'email' => 'mike@companytwo.com',
+                'phone' => '097872322222',
+                'company_id' => 2
+
+            ])->save();
+        }
     }
 
     /**
