@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use TCG\Voyager\Database\Schema\SchemaManager;
 use TCG\Voyager\Events\BreadDataAdded;
 use TCG\Voyager\Events\BreadDataDeleted;
@@ -449,6 +450,17 @@ class  CompanyController extends VoyagerBaseController
         $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
         event(new BreadDataAdded($dataType, $data));
+
+        //Mail
+        Mail::send(
+            'emails/companyCreated',
+            $data->toArray(),
+            function ($message) {
+                $message->to('codingeekmm@gmail.com', 'Codeing Geek')
+                    ->subject('Company Created!');
+            }
+        );
+        //
 
         if (!$request->has('_tagging')) {
             if (auth()->user()->can('browse', $data)) {
