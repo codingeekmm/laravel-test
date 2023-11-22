@@ -9,13 +9,7 @@ use TCG\Voyager\Traits\Translatable;
 class Employee extends Model
 {
     use HasFactory;
-
-    use Translatable;
-
-    protected $translatable = ['fname', 'lname', 'company_id', 'email', 'phone'];
-
     protected $table = 'employees';
-
     protected $fillable =  ['fname', 'lname', 'company_id', 'email', 'phone'];
 
     public function companyId()
