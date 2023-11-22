@@ -15,8 +15,7 @@ class HondaLogicDatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            CompaniesTableSeeder::class,
-            EmployeesTableSeeder::class,
+
             DataTypesTableSeeder::class,
             DataRowsTableSeeder::class,
             MenusTableSeeder::class,
@@ -26,6 +25,8 @@ class HondaLogicDatabaseSeeder extends Seeder
             PermissionsTableSeeder::class,
             SettingsTableSeeder::class,
             TranslationsTableSeeder::class,
+            CompaniesTableSeeder::class,
+            EmployeesTableSeeder::class,
             PermissionRoleTableSeeder::class,
         ]);
     }
