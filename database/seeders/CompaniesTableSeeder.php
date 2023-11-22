@@ -115,20 +115,6 @@ class CompaniesTableSeeder extends Seeder
                 'order' => 5,
             ])->save();
 
-            // $dataRow = $this->dataRow($companyDataType, 'image');
-            // if (!$dataRow->exists) {
-            //     $dataRow->fill([
-            //         'type'         => 'image',
-            //         'display_name' => 'Logo',
-            //         'required'     => 1,
-            //         'browse'       => 1,
-            //         'read'         => 1,
-            //         'edit'         => 1,
-            //         'add'          => 1,
-            //         'delete'       => 1,
-            //         'order'        => 5,
-            //     ])->save();
-            // }
 
             $dataRow = $this->dataRow($companyDataType, 'created_at');
             if (!$dataRow->exists) {
@@ -160,55 +146,6 @@ class CompaniesTableSeeder extends Seeder
                 ])->save();
             }
 
-
-
-            // $dataRow = $this->dataRow($companyDataType, 'name');
-            // if (!$dataRow->exists) {
-            //     $dataRow->fill([
-            //         'type'         => 'text',
-            //         'display_name' => __('voyager::seeders.data_rows.name'),
-            //         'required'     => 1,
-            //         'browse'       => 1,
-            //         'read'         => 1,
-            //         'edit'         => 1,
-            //         'add'          => 1,
-            //         'delete'       => 1,
-            //         'order'        => 4,
-            //     ])->save();
-            // }
-
-
-
-            // $dataRow = $this->dataRow($companyDataType, 'created_at');
-            // if (!$dataRow->exists) {
-            //     $dataRow->fill([
-            //         'type'         => 'timestamp',
-            //         'display_name' => __('voyager::seeders.data_rows.created_at'),
-            //         'required'     => 0,
-            //         'browse'       => 0,
-            //         'read'         => 1,
-            //         'edit'         => 0,
-            //         'add'          => 0,
-            //         'delete'       => 0,
-            //         'order'        => 6,
-            //     ])->save();
-            // }
-
-            // $dataRow = $this->dataRow($companyDataType, 'updated_at');
-            // if (!$dataRow->exists) {
-            //     $dataRow->fill([
-            //         'type'         => 'timestamp',
-            //         'display_name' => __('voyager::seeders.data_rows.updated_at'),
-            //         'required'     => 0,
-            //         'browse'       => 0,
-            //         'read'         => 0,
-            //         'edit'         => 0,
-            //         'add'          => 0,
-            //         'delete'       => 0,
-            //         'order'        => 7,
-            //     ])->save();
-            // }
-
             //Menu Item
             $menu = Menu::where('name', 'admin')->firstOrFail();
             $menuItem = MenuItem::firstOrNew([
@@ -220,7 +157,7 @@ class CompaniesTableSeeder extends Seeder
             if (!$menuItem->exists) {
                 $menuItem->fill([
                     'target'     => '_self',
-                    'icon_class' => 'voyager-companies',
+                    'icon_class' => 'voyager-world',
                     'color'      => null,
                     'parent_id'  => null,
                     'order'      => 8,

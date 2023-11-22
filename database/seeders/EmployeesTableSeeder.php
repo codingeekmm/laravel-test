@@ -166,55 +166,6 @@ class EmployeesTableSeeder extends Seeder
             ])->save();
         }
 
-
-
-        // $dataRow = $this->dataRow($employeeDataType, 'name');
-        // if (!$dataRow->exists) {
-        //     $dataRow->fill([
-        //         'type'         => 'text',
-        //         'display_name' => __('voyager::seeders.data_rows.name'),
-        //         'required'     => 1,
-        //         'browse'       => 1,
-        //         'read'         => 1,
-        //         'edit'         => 1,
-        //         'add'          => 1,
-        //         'delete'       => 1,
-        //         'order'        => 4,
-        //     ])->save();
-        // }
-
-
-
-        // $dataRow = $this->dataRow($employeeDataType, 'created_at');
-        // if (!$dataRow->exists) {
-        //     $dataRow->fill([
-        //         'type'         => 'timestamp',
-        //         'display_name' => __('voyager::seeders.data_rows.created_at'),
-        //         'required'     => 0,
-        //         'browse'       => 0,
-        //         'read'         => 1,
-        //         'edit'         => 0,
-        //         'add'          => 0,
-        //         'delete'       => 0,
-        //         'order'        => 6,
-        //     ])->save();
-        // }
-
-        // $dataRow = $this->dataRow($employeeDataType, 'updated_at');
-        // if (!$dataRow->exists) {
-        //     $dataRow->fill([
-        //         'type'         => 'timestamp',
-        //         'display_name' => __('voyager::seeders.data_rows.updated_at'),
-        //         'required'     => 0,
-        //         'browse'       => 0,
-        //         'read'         => 0,
-        //         'edit'         => 0,
-        //         'add'          => 0,
-        //         'delete'       => 0,
-        //         'order'        => 7,
-        //     ])->save();
-        // }
-
         //Menu Item
         $menu = Menu::where('name', 'admin')->firstOrFail();
         $menuItem = MenuItem::firstOrNew([
