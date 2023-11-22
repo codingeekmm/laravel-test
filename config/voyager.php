@@ -111,9 +111,7 @@ return [
          */
         'locales' => [
             'en',
-            'da',
-            'fr'
-            //'pt',
+            'pt',
         ],
     ],
 
